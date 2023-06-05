@@ -12,9 +12,13 @@ class PuppetSeeder extends Seeder
      */
     public function run()
     {
-        Puppet::create([
-            'title' => 'AmiguPrimo',
-            'body' => 'Il primo Amigurumi non si scorda mai!',
-        ]);
+        // Puppet::create([
+        //     'title' => 'AmiguPrimo',
+        //     'body' => 'Il primo Amigurumi non si scorda mai!',
+        // ]);
+        $newPost = new Puppet();
+        $newPost->title = "AmiguPrimo";
+        $newPost->body = "Il primo Amigurumi non si scorda mai!";
+        $newPost->save();
     }
 }

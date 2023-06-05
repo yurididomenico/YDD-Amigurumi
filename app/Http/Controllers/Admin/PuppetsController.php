@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Puppet;
+
 class PuppetsController extends Controller
 {
     /**
@@ -14,7 +16,11 @@ class PuppetsController extends Controller
      */
     public function index()
     {
-        return view('admin.puppets.index');
+        $data = [
+            'puppets' => Puppet::paginate(10) //pagination in 10 schede da 10 records
+        ];
+
+        return view('admin.puppets.index', $data);
     }
 
     /**
