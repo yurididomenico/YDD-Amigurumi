@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Puppet;
 
 class PuppetSeeder extends Seeder
 {
@@ -11,6 +12,9 @@ class PuppetSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Puppet::create([
+            'title' => 'AmiguPrimo',
+            'body' => 'Il primo Amigurumi non si scorda mai!',
+        ]);
     }
 }
