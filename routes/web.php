@@ -1,6 +1,11 @@
 <?php
 
+
+use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +30,11 @@ Route::middleware('auth')
     ->name('admin.')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('index');
+        Route::resource('/puppets', PuppetsController::class);
     });
 
 Route::get('{any?}', function () {
     return view('guest.home');
 })->where("any", ".\*");
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
