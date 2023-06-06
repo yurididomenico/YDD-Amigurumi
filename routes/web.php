@@ -31,6 +31,7 @@ Route::middleware('auth')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('index');
         Route::resource('/puppets', PuppetsController::class);
+        // Route::put('/puppets/{puppet}', [PuppetsController::class, 'update'])->name('admin.puppets.update');
     });
 
 Route::get('{any?}', function () {

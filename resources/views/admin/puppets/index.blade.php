@@ -31,7 +31,7 @@
                     </td>
                     <td class="d-flex justify-content-start">
                         <a href="{{ route('admin.puppets.edit', $puppet->id) }}" class="me-3">
-                            <i class="fa-solid fa-pen-to-square btnHover fs-40 text-secondary"></i>
+                            <i class="fa-solid fa-pen-to-square fs-40 text-secondary"></i>
                         </a>
                         <form method="POST" action="{{ route('admin.puppets.destroy', $puppet->id) }}">
                             @csrf

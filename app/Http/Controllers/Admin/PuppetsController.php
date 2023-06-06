@@ -72,7 +72,9 @@ class PuppetsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $puppet = Puppet::findOrFail($id);
+
+        return view('admin.puppets.edit', compact('puppet'));
     }
 
     /**
@@ -84,7 +86,11 @@ class PuppetsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $singoloPuppet = Puppet::findOrFail($id);
+        $singoloPuppet->update($data);
+
+        return redirect()->route('admin.puppets.show', $singoloPuppet->id);
     }
 
     /**
@@ -95,6 +101,8 @@ class PuppetsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $singoloPuppet = Puppet::findOrFail($id);
+        $singoloPuppet->delete();
+        return redirect()->route('admin.puppets.index');
     }
 }
