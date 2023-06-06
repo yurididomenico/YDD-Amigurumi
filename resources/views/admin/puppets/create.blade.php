@@ -11,10 +11,20 @@
             <div class="my-4">
                 <label class="form-label" for="">Titolo</label>
                 <input class="form-control inputTitle" type="text" name="title" maxlength="30">
+                @error('title')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="my-4">
                 <label class="form-label" for="">Descrizione</label>
                 <textarea class="form-control inputBody" name="body"></textarea>
+                @error('body')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="mb-4">
                 <button class="bg-pink p-text-white p-2 px-3 rounded border-0 btnHover">Crea</button>

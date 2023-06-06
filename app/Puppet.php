@@ -8,7 +8,7 @@ class Puppet extends Model
 {
     protected $table = 'puppets'; // Specifica il nome della tabella corrispondente
 
-    protected $fillable = ['title', 'body']; // Definisci i campi che possono essere assegnati in modo massivo
+    protected $fillable = ['title', 'body', 'cover']; // Definisci i campi che possono essere assegnati in modo massivo
 
     // Eventuali altre relazioni, accessori o metodi del modello possono essere definiti qui
 }

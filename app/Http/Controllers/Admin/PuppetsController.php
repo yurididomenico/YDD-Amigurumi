@@ -41,7 +41,15 @@ class PuppetsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $request->validate([
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+        $newPost = new Puppet();
+        $newPost->fill($data);
+        $newPost->save();
+        return redirect()->route('admin.puppets.index');
     }
 
     /**
