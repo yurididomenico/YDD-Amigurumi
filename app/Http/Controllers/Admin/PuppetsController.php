@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Puppet;
 use App\Size;
+use App\Type;
 
 
 class PuppetsController extends Controller
@@ -19,7 +20,7 @@ class PuppetsController extends Controller
     public function index()
     {
         $data = [
-            'puppets' => Puppet::with('size')->paginate(10) //pagination in 10 schede da 10 records
+            'puppets' => Puppet::with('size', 'type')->paginate(10) //pagination in 10 schede da 10 records
         ];
 
         return view('admin.puppets.index', $data);
@@ -33,7 +34,8 @@ class PuppetsController extends Controller
     public function create()
     {
         $sizes = Size::All();
-        return view('admin.puppets.create', compact('sizes'));
+        $types = Type::All(); // use App\Category;
+        return view('admin.puppets.create', compact('sizes', 'types'));
     }
 
     /**
@@ -45,7 +47,7 @@ class PuppetsController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        // dd($data);
+
         $request->validate([
             'title' => 'required',
             'body' => 'required'
@@ -53,6 +55,7 @@ class PuppetsController extends Controller
         $newPost = new Puppet();
         $newPost->fill($data);
         $newPost->save();
+
         return redirect()->route('admin.puppets.index');
     }
 

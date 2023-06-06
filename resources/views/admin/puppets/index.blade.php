@@ -15,6 +15,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Body</th>
                 <th scope="col">Size</th>
+                <th scope="col">Type</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -27,6 +28,11 @@
                     <td>
                         @if ($puppet->size)
                             {{ $puppet->size['size'] }}
+                        @endif
+                    </td>
+                    <td>
+                        @if ($puppet->type)
+                            {{ $puppet->type['type'] }}
                         @endif
                     </td>
                     <td class="d-flex justify-content-start">

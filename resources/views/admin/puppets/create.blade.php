@@ -42,6 +42,17 @@
                 </select>
             </div>
 
+            {{-- Tipo Filato --}}
+            <div class="my-4">
+                <label for="">Filato</label>
+                <select name="type_id" class="form-control">
+                    <option value="">Seleziona il filato</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}">{{ $type->type }}</option>
+                    @endforeach
+                </select>
+            </div>
+
 
             <div class="mb-4">
                 <button class="bg-pink p-text-white p-2 px-3 rounded border-0 btnHover">Crea</button>
