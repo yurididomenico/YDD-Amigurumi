@@ -15,6 +15,11 @@ body {
     background-color: #f2ccd2;
 }
 
+.text-pink {
+    color: #e28d8d;
+    font-weight: bold;
+}
+
 .text-white {
     color: white;
 }
@@ -27,9 +32,22 @@ body {
     box-shadow: 0 0 10px black;
 }
 
+.p-bg-gradient-pink {
+    background: linear-gradient(to left, #f6e8ea 60%, #f2ccd2);
+}
+
+// ---- HOVER ---------------------------------------------------
+
 .btnHover:hover {
     /* Stili di hover generici per tutti i bottoni */
     filter: brightness(
         0.9
     ); /* Applica una sfumatura scura a tutti i bottoni al passaggio del mouse */
+}
+
+.linkHover:hover {
+    color: #bb2828;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.5s;
 }
