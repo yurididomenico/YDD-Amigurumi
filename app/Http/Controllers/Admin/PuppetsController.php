@@ -30,7 +30,7 @@ class PuppetsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.puppets.create');
     }
 
     /**
@@ -52,7 +52,8 @@ class PuppetsController extends Controller
      */
     public function show($id)
     {
-        //
+        $singolo_puppet = Puppet::findOrFail($id);
+        return view('admin.puppets.show', compact('singolo_puppet'));
     }
 
     /**

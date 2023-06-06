@@ -5,7 +5,10 @@
     {{-- @foreach ($puppets as $puppet)
         {{ $puppet->title }}
     @endforeach --}}
-    <table class="table">
+    <a class="bg-pink text-white p-2 px-3 rounded" href="{{ route('admin.puppets.create') }}"><i
+            class="fa-solid fa-plus"></i></a>
+
+    <table class="table mt-3">
         <thead>
             <tr>
                 <th scope="col">#ID</th>
@@ -19,10 +22,26 @@
             @foreach ($puppets as $puppet)
                 <tr>
                     <td>{{ $puppet->id }}</td>
-                    <td>{{ $puppet->title }}</td>
+                    <td><a href="{{ route('admin.puppets.show', $puppet->id) }}">{{ $puppet->title }}</a></td>
                     <td>{{ $puppet->body }}</td>
-                    <td>Categoria</td>
-                    <td>[][]</td>
+                    <td>
+                        @if ($puppet->category)
+                            {{ $puppet->category['name'] }}
+                        @endif
+                    </td>
+                    <td>
+                        <a href="{{ route('admin.puppets.edit', $puppet->id) }}">
+                            Edit
+                        </a>
+                        <form method="POST" action="{{ route('admin.puppets.destroy', $puppet->id) }}">
+                            @csrf
+                            <!-- Token che rende univoco ogni click su submit -->
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

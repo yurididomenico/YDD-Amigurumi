@@ -10931,3 +10931,11 @@ a.text-dark:focus {
   }
 }
 
+.bg-pink {
+  background-color: #f2ccd2;
+}
+
+.text-white {
+  color: white;
+}
+
