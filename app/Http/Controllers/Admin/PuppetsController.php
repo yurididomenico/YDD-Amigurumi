@@ -82,8 +82,9 @@ class PuppetsController extends Controller
         $puppet = Puppet::findOrFail($id);
 
         $sizes = Size::All();
+        $types = Type::All();
 
-        return view('admin.puppets.edit', compact('puppet', 'sizes'));
+        return view('admin.puppets.edit', compact('puppet', 'sizes', 'types'));
     }
 
     /**

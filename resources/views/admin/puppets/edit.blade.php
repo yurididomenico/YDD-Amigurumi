@@ -9,6 +9,7 @@
             @csrf
             <!-- Token -->
             @method('PUT')
+            {{-- Titolo --}}
             <div class="my-4">
                 <label class="form-label" for="">Titolo</label>
                 <input value="{{ $puppet->title }}" class="form-control inputTitle" type="text" name="title"
@@ -19,6 +20,8 @@
                     </div>
                 @enderror
             </div>
+
+            {{-- Descrizione --}}
             <div class="my-4">
                 <label class="form-label" for="">Descrizione</label>
                 <textarea class="form-control inputBody" name="body">{{ $puppet->body }}</textarea>
@@ -28,6 +31,8 @@
                     </div>
                 @enderror
             </div>
+
+            {{-- Taglia --}}
             <div class="my-4">
                 <label for="">Taglia</label>
                 <select name="size_id" class="form-control">
@@ -36,6 +41,20 @@
                         <option value="{{ $size->id }}"
                             {{ $size->id == old('size_id', $puppet->size_id) ? 'selected' : '' }}>
                             {{ $size->size }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            {{-- Filato --}}
+            <div class="my-4">
+                <label for="">Filato</label>
+                <select name="type_id" class="form-control">
+                    <option value="">Seleziona il filato</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}"
+                            {{ $type->id == old('type_id', $puppet->type_id) ? 'selected' : '' }}>
+                            {{ $type->type }}
                         </option>
                     @endforeach
                 </select>
