@@ -7,10 +7,29 @@
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
 
+body {
+    background-color: #f6e8ea;
+}
+
 .bg-pink {
     background-color: #f2ccd2;
 }
 
 .text-white {
     color: white;
+}
+
+.fs-40 {
+    font-size: 40px;
+}
+
+.p-shadow-10 {
+    box-shadow: 0 0 10px black;
+}
+
+.btnHover:hover {
+    /* Stili di hover generici per tutti i bottoni */
+    filter: brightness(
+        0.9
+    ); /* Applica una sfumatura scura a tutti i bottoni al passaggio del mouse */
 }
