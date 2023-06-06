@@ -14,7 +14,7 @@
                 <th scope="col">#ID</th>
                 <th scope="col">Title</th>
                 <th scope="col">Body</th>
-                <th scope="col">category_id</th>
+                <th scope="col">Size</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -25,8 +25,8 @@
                     <td><a href="{{ route('admin.puppets.show', $puppet->id) }}">{{ $puppet->title }}</a></td>
                     <td>{{ $puppet->body }}</td>
                     <td>
-                        @if ($puppet->category)
-                            {{ $puppet->category['name'] }}
+                        @if ($puppet->size)
+                            {{ $puppet->size['size'] }}
                         @endif
                     </td>
                     <td class="d-flex justify-content-start">

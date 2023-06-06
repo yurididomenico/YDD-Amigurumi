@@ -28,18 +28,19 @@
                     </div>
                 @enderror
             </div>
-            {{-- <div class="my-4">
-                <label for="">Categories</label>
-                <select name="category_id" class="form-control">
-                    <option value="">Seleziona la categoria</option>
-                    @foreach ($categories as $category)
-                        <option value="{{ $category->id }}"
-                            {{ $category->id == old('category_id', $post->category_id) ? 'selected' : '' }}>
-                            {{ $category->name }}
+            <div class="my-4">
+                <label for="">Taglia</label>
+                <select name="size_id" class="form-control">
+                    <option value="">Seleziona la taglia</option>
+                    @foreach ($sizes as $size)
+                        <option value="{{ $size->id }}"
+                            {{ $size->id == old('size_id', $puppet->size_id) ? 'selected' : '' }}>
+                            {{ $size->size }}
                         </option>
                     @endforeach
                 </select>
             </div>
+            {{--
             <div class="my-4">
                 <label for="">Tags:</label>
                 @foreach ($tags as $tag)
