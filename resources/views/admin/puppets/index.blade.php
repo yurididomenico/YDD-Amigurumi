@@ -5,7 +5,7 @@
     {{-- @foreach ($puppets as $puppet)
         {{ $puppet->title }}
     @endforeach --}}
-    <a class="bg-pink text-white p-2 px-3 rounded btnHover" href="{{ route('admin.puppets.create') }}"><i
+    <a class="bg-pink p-text-white p-2 px-3 rounded btnHover" href="{{ route('admin.puppets.create') }}"><i
             class="fa-solid fa-plus"></i></a>
 
     <table class="table mt-3">
