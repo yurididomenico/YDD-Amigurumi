@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call(
             [
                 PuppetSeeder::class,
-                SizeSeeder::class
+                SizeSeeder::class,
+                TypeSeeder::class
             ]
         );
     }
