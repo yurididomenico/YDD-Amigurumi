@@ -8,8 +8,9 @@ class Puppet extends Model
 {
     protected $table = 'puppets'; // Specifica il nome della tabella corrispondente
 
-    protected $fillable = ['title', 'body', 'cover', 'size_id', 'type_id']; // Definisci i campi che possono essere assegnati in modo massivo
+    protected $fillable = ['title', 'body', 'cover', 'size_id', 'type_id', 'user_id']; // Definisci i campi che possono essere assegnati in modo massivo
 
+    // Eventuali relazioni, accessori o metodi del modello possono essere definiti qui
     public function size()
     {
         // Funzione di relazione
@@ -19,8 +20,13 @@ class Puppet extends Model
     public function type()
     {
         // Funzione di relazione
-        return $this->belongsTo('App\Type'); // Il singolo post avrà una sola categoria associata
+        return $this->belongsTo('App\Type'); // Il singolo post avrà un solo tipo associato
     }
 
-    // Eventuali altre relazioni, accessori o metodi del modello possono essere definiti qui
+    public function user()
+    {
+        //Funzione di relazione
+
+        return $this->belongsTo('App\User');  //Il singolo post avrà un solo utente associato
+    }
 }

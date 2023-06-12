@@ -20,7 +20,7 @@
                 @enderror
             </div>
 
-            {{-- Descrizioone --}}
+            {{-- Descrizione --}}
             <div class="my-4">
                 <label class="form-label" for="">Descrizione</label>
                 <textarea class="form-control inputBody" name="body"></textarea>
@@ -52,6 +52,8 @@
                     @endforeach
                 </select>
             </div>
+
+
 
 
             <div class="mb-4">

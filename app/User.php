@@ -8,6 +8,13 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    public function posts()
+    {
+        // Funzione di relazione
+
+        return $this->hasMany('App\Puppet'); // La categoria ha tanti posts associati
+    }
+
     use Notifiable;
 
     /**

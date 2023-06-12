@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Puppet;
 use App\Size;
 use App\Type;
+use App\User;
+
 
 
 class PuppetsController extends Controller
@@ -34,8 +36,9 @@ class PuppetsController extends Controller
     public function create()
     {
         $sizes = Size::All();
-        $types = Type::All(); // use App\Category;
-        return view('admin.puppets.create', compact('sizes', 'types'));
+        $types = Type::All();
+        $users = User::All();
+        return view('admin.puppets.create', compact('sizes', 'types', 'users'));
     }
 
     /**
@@ -47,14 +50,15 @@ class PuppetsController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
+        //dd($data);
         $request->validate([
             'title' => 'required',
             'body' => 'required'
         ]);
-        $newPost = new Puppet();
-        $newPost->fill($data);
-        $newPost->save();
+        $newPuppet = new Puppet();
+        $newPuppet->fill($data);
+        $newPuppet->user_id = auth()->user()->id; // Assumi che l'utente autenticato sia l'autore del puppet
+        $newPuppet->save();
 
         return redirect()->route('admin.puppets.index');
     }
