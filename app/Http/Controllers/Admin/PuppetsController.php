@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 use App\Puppet;
 use App\Size;
@@ -50,12 +52,18 @@ class PuppetsController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        //dd($data);
+        // dd($data);
         $request->validate([
             'title' => 'required',
             'body' => 'required'
         ]);
         $newPuppet = new Puppet();
+
+        if (array_key_exists('image', $data)) {
+            $cover_url = Storage::put('puppet_covers', $data['image']); //Potrebbe darti errore Storage -> inserisci in alto use Illuminate\Support\Facades\Storage;
+            $data['cover'] = $cover_url;
+        }
+
         $newPuppet->fill($data);
         $newPuppet->user_id = auth()->user()->id; // Assumi che l'utente autenticato sia l'autore del puppet
         $newPuppet->save();
@@ -116,6 +124,9 @@ class PuppetsController extends Controller
     public function destroy($id)
     {
         $singoloPuppet = Puppet::findOrFail($id);
+        if ($singoloPuppet->cover) {
+            Storage::delete($singoloPuppet->cover);
+        }
         $singoloPuppet->delete();
         return redirect()->route('admin.puppets.index');
     }

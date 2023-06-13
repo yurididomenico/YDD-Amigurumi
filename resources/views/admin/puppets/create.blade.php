@@ -53,7 +53,11 @@
                 </select>
             </div>
 
-
+            {{-- Immagine --}}
+            <div class="my-4">
+                <label for="">Aggiunta immagine copertina</label>
+                <input type="file" name="image" class="form-control-file">
+            </div>
 
 
             <div class="mb-4">

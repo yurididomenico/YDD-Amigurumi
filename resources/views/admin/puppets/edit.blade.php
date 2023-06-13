@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="text-center">
-        <h1>Modifica Amigurumi: $puppet->title</h1>
+        <h1>Modifica Amigurumi: {{ $puppet->title }}</h1>
     </div>
     <div class="creazioneAmigurumi d-flex justify-content-around align-items-center">
         <form action="{{ route('admin.puppets.update', $puppet->id) }}" method="POST" enctype="multipart/form-data"
@@ -70,6 +70,12 @@
                     </label>
                 @endforeach
             </div> --}}
+
+            {{-- Immagine --}}
+            <div class="my-4">
+                <label for="">Aggiunta immagine copertina</label>
+                <input type="file" name="image" class="form-control-file">
+            </div>
 
             <div class="mb-4">
                 <button type="submit" class="bg-pink p-text-white p-2 px-3 rounded border-0 btnHover">Modifica</button>
