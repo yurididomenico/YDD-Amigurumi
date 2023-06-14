@@ -16,4 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+}); // Il back-end manda in formato json le informazioni al front-end e per poi ciclarle e stamparle
+
+Route::namespace('Api')->prefix('/puppets')->group(function () {
+    Route::get('/', 'PuppetsController@index');
 });
